@@ -1,8 +1,3 @@
-# /home/ax/SemanticGraphs/vis_graph/utils.py
-# utility and helper functions for use in pyvis
-
-
-# /home/ax/SemanticGraphs/vis_graph/network.py
 import json
 import os
 import shutil
@@ -18,7 +13,6 @@ def check_html(name):
     assert len(name.split(".")) >= 2, "invalid file type for %s" % name
     assert name.split(".")[-1] == "html", "%s is not a valid html file" % name
 
-# /home/ax/SemanticGraphs/vis_graph/edge.py
 class Edge(object):
     def __init__(self, source, dest, directed=False, edge_width = 1, **options):
         self.options = options
@@ -30,7 +24,6 @@ class Edge(object):
 
         self.options['width'] = edge_width
 
-# /home/ax/SemanticGraphs/vis_graph/node.py
 class Node(object):
     def __init__(self, n_id, shape, label, node_size=40, font_color=False, font_size=35, **opts):
         self.options = opts
@@ -39,9 +32,6 @@ class Node(object):
         self.options["shape"] = shape
         self.options["size"] = node_size
         self.options["font"] = dict(color=font_color, size=font_size)
-
-# /home/ax/SemanticGraphs/vis_graph/physics.py
-import json
 
 class Physics(object):
     engine_chosen = False
@@ -88,10 +78,6 @@ class Physics(object):
         return json.dumps(
             self, default=lambda o: o.__dict__,
             sort_keys=True, indent=4)
-
-
-
-# /home/ax/SemanticGraphs/vis_graph/options.py
 
 class EdgeOptions(object):
     def __init__(self):
@@ -214,9 +200,6 @@ class Options(object):
         return json.dumps(
             self, default=lambda o: o.__dict__,
             sort_keys=True, indent=4)
-
-
-
 
 class Network(object):
     def __init__(self,
