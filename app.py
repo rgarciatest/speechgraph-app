@@ -13,7 +13,7 @@ import networkx as nx
 from io import BytesIO
 
 
-st.set_page_config(page_title="AXXONN APP", page_icon='smile', layout='wide')
+st.set_page_config(page_title="AXXONN APP", page_icon='🐿️', layout='wide')
 
 def bigram_edges(tokens):
     edgetable = list(zip(tokens[:-1], tokens[1:]))
@@ -86,10 +86,11 @@ def read_html():
 		st.error("El archivo HTML no se encontró. Verifica la ruta.")
 
 def main():
-	st.title('Directed Multi Graph from word co-ocurrence')
+	st.title('Speech Directed MultiGraph (Co-occurrence network)')
+	# st.title('Directed Multi Graph from word co-ocurrence')
 	# tokens = text2list('sample.txt')
 	with st.container():
-		txt_file = st.file_uploader("UPLOAD TXT:", type=['txt'])
+		txt_file = st.file_uploader("Upload .txt file with words sequence:", type=['txt'])
 
 		if txt_file is not None:
 			info_text = {
@@ -112,7 +113,7 @@ def main():
 				nt.save_graph("textgraph.html")
 				text = ' '.join(tokens)
 				read_html()
-				st.write(text)
+				st.write(txt)
 
 				# buf = BytesIO()
 				# img.save(buf, format="JPEG")
