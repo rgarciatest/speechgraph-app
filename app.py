@@ -13,6 +13,16 @@ import networkx as nx
 
 st.set_page_config(page_title="SpeechGraph", page_icon='🐿️', layout='wide')
 
+page_bg_color = """
+<style>
+body {
+    background-color: #ffffff; color: #4a4a4a; font-family: 'Arial', sans-serif;
+}
+[data-testid="stAppViewContainer"] {color: #4a4a4a; background-color: #ffffff; }
+</style>
+"""
+st.markdown(page_bg_color, unsafe_allow_html=True)
+
 def bigram_edges(tokens):
     edgetable = list(zip(tokens[:-1], tokens[1:]))
     return edgetable
@@ -106,7 +116,6 @@ def main():
 
 	with st.container():
 		st.header('Vizualizar Grafo')
-		# txt_file = st.file_uploader("Upload .txt file with words sequence:", type=['txt'])
 		txt_file = st.file_uploader("Carga un archivo .txt que contenga una palabra por línea de texto.", type=['txt'])
 		
 		if txt_file is not None:
