@@ -13,7 +13,7 @@ import networkx as nx
 from io import BytesIO
 
 
-st.set_page_config(page_title="AXXONN APP", page_icon='🐿️', layout='wide')
+st.set_page_config(page_title="SpeechGraph", page_icon='🐿️', layout='wide')
 
 def bigram_edges(tokens):
     edgetable = list(zip(tokens[:-1], tokens[1:]))
